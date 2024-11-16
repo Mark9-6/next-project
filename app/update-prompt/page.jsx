@@ -1,10 +1,9 @@
 // app/update-prompt/page.js
 
 "use client";
-import { Suspense, useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation"; // Don't forget to import Suspense
-
-import Form from "@components/Form";
+import { useState, useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import Form from "@components/Form"; // Assuming this is a form component for editing
 
 const UpdatePrompt = () => {
   const router = useRouter();
@@ -25,7 +24,9 @@ const UpdatePrompt = () => {
       });
     };
 
-    if (promptId) getPromptDetails();
+    if (promptId) {
+      getPromptDetails();
+    }
   }, [promptId]);
 
   const updatePrompt = async (e) => {
